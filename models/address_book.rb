@@ -33,8 +33,19 @@ class AddressBook
         lower = mid + 1
       end
     end
-    
+
     return nil
+  end
+
+  def iterative_search(name)
+    entries.each_with_index do |obj, index|
+      if name == obj.name
+        return entries[index]
+        break
+      else
+        return nil
+      end
+    end
   end
 
   def import_from_csv(file_name)
