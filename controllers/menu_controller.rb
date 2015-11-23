@@ -14,6 +14,7 @@ class MenuController
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
     puts "5 - Exit"
+    puts "99 - The Red Button"
     print "Enter you selection: "
 
     selection = gets.to_i
@@ -40,6 +41,10 @@ class MenuController
       puts "Good-bye!"
 
       exit(0)
+    when 99
+      system "clear"
+      the_red_button
+      main_menu
 
     else
       system "clear"
@@ -174,6 +179,25 @@ class MenuController
       puts "#{selection} is not a valid input"
       puts entry.to_s
       search_submenu(entry)
+    end
+  end
+
+  def the_red_button
+    puts "Its very tempting isn't it? Do you push it? yes/no"
+    desire = gets.chomp
+
+    if desire == "yes"
+      @address_book.entries = []
+      puts "Anyone??? What have you done...?"
+    else
+      puts "You know you want to...  fine/nope"
+      desire2 = gets.chomp
+      if desire2 == "fine"
+        @address_book.entries = []
+        puts "Anyone??? What have you done...?"
+      else
+        system "clear"
+      end
     end
   end
 end
