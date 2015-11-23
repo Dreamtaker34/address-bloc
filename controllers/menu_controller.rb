@@ -187,14 +187,16 @@ class MenuController
     desire = gets.chomp
 
     if desire == "yes"
+      #names = "entries0! and entries2!" if greater than 2 are found or (:) only "entries0!" if less than 2 are found.
+      names = @address_book.entries.count > 2 ? "#{@address_book.entries[0].name}! #{@address_book.entries[2].name}!" : "#{@address_book.entries[0].name}!"
+      puts "#{names} Anyone??? What have you done...?"
       @address_book.entries = []
-      puts "Anyone??? What have you done...?"
     else
       puts "You know you want to...  fine/nope"
       desire2 = gets.chomp
       if desire2 == "fine"
+        puts "#{names} Anyone??? What have you done...?"
         @address_book.entries = []
-        puts "Anyone??? What have you done...?"
       else
         system "clear"
       end
