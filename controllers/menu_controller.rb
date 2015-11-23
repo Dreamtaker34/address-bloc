@@ -185,10 +185,10 @@ class MenuController
   def the_red_button
     puts "Its very tempting isn't it? Do you push it? yes/no"
     desire = gets.chomp
+    #names = "entries0! and entries2!" if greater than 2 are found or (:) only "entries0!" if less than 2 are found.
+    names = @address_book.entries.count > 2 ? "#{@address_book.entries[0].name}! #{@address_book.entries[2].name}!" : "#{@address_book.entries[0].name}!"
 
     if desire == "yes"
-      #names = "entries0! and entries2!" if greater than 2 are found or (:) only "entries0!" if less than 2 are found.
-      names = @address_book.entries.count > 2 ? "#{@address_book.entries[0].name}! #{@address_book.entries[2].name}!" : "#{@address_book.entries[0].name}!"
       puts "#{names} Anyone??? What have you done...?"
       @address_book.entries = []
     else
